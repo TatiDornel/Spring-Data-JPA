@@ -114,5 +114,26 @@
   </dependencies>
   <build>
     <finalName>easySystem</finalName>
+	  
+	  <plugins>
+        <plugin>
+      		<groupId>br.com.dornel</groupId>
+      <artifactId>docker-maven-plugin</artifactId>
+      <version>VERSION GOES HERE</version>
+      <configuration>
+        <imageName>example</imageName>
+        <dockerDirectory>docker</dockerDirectory>
+        <resources>
+           <resource>
+             <targetPath>/</targetPath>
+             <directory>${project.build.directory}</directory>
+             <include>${project.build.finalName}.war</include>
+           </resource>
+        </resources>
+      </configuration>
+    </plugin>
+    ...
+  </plugins>
+	  
   </build>
 </project>
